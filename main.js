@@ -44,6 +44,12 @@ const messages = [
   "Désistez-vous pour faire barrage au RN ! desiste.fr",
 ];
 
+const getTwitterURL = (handle) => {
+  const message = messages[Math.floor(Math.random() * messages.length)];
+  const text = `@${handle} ${message} #legislatives2024`;
+  return `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
+};
+
 const message = messages[Math.floor(Math.random() * messages.length)];
 document.querySelector("#message").textContent = message;
 document.querySelector("#message-container").onclick = () => {
@@ -87,7 +93,9 @@ fetch("https://legislatives.fly.dev/")
           }
           ${
             candidate.x?.handle
-              ? `<a href="https://twitter.com/${candidate.x.handle}" target="_blank"><img src="/x-logo.svg" /></a>`
+              ? `<a href="${getTwitterURL(
+                  candidate.x?.handle
+                )}" target="_blank"><img src="/x-logo.svg" /></a>`
               : ""
           }
         </div>
