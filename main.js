@@ -50,13 +50,6 @@ const getTwitterURL = (handle) => {
   return `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
 };
 
-// const message = messages[Math.floor(Math.random() * messages.length)];
-// document.querySelector("#message").textContent = message;
-// document.querySelector("#message-container").onclick = () => {
-//   copyTextToClipboard(message);
-//   document.querySelector("#copy-btn").textContent = "Copié !";
-// };
-
 function getBadgeColor(parti) {
   const colors = {
     LR: "#0890C5",
@@ -64,6 +57,7 @@ function getBadgeColor(parti) {
     "DIV. DR.": "#6387A8",
     "REN.-ENSEMBLE": "#FF9F0E",
     "MODEM-ENSEMBLE": "#FF9F0E",
+    "DIV. G.": "#DA679E",
   };
 
   return colors[parti] || "black";
@@ -72,8 +66,22 @@ function getBadgeColor(parti) {
 fetch("https://legislatives.fly.dev/")
   .then((response) => response.json())
   .then((data) => {
-    const candidates = data.candidatsNonDesistes.filter((c) => !c.desiste);
-    const count = candidates.length;
+    const candidates = data.candidatsNonDesistes;
+    candidates.sort((a, b) => {
+      // first the non desiste
+      // then by higher score
+
+      if (a.desiste && !b.desiste) {
+        return 1;
+      }
+
+      if (!a.desiste && b.desiste) {
+        return -1;
+      }
+
+      return b.score - a.score;
+    });
+    const count = data.candidatsNonDesistes.filter((c) => !c.desiste).length;
     console.log(candidates);
 
     // all elements with class "number" will be updated with the count
@@ -94,6 +102,9 @@ fetch("https://legislatives.fly.dev/")
       ).score;
       console.log(scoreRN);
       div.classList.add("candidate");
+      if (candidate.desiste) {
+        div.classList.add("desiste");
+      }
       div.href = getTwitterURL(candidate.x?.handle);
       div.innerHTML = `
         <div class="left">
