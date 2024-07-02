@@ -35,7 +35,12 @@ fetch("https://legislatives.fly.dev/")
       const div = document.createElement("div");
       div.classList.add("candidate");
       div.innerHTML = `
-        <div class="name">${candidate.nom}</div>
+        <div class="left">
+          <b>${candidate.nom}</b>
+          <span>${candidate.parti} • ${candidate.circonscription} • ${
+        candidate.score
+      }%</span>
+        </div>
         <div class="socials">
           ${
             candidate.insta
