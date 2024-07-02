@@ -153,7 +153,7 @@ export const data = {
       ],
     },
     {
-      desiste: false,
+      desiste: true,
       circonscription: "HÉRAULT 1e CIRCO.",
       parti: "REN.-ENSEMBLE",
       nom: "Patricia Miralles",
