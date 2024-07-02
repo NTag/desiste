@@ -40,3 +40,10 @@ h2 {
   justify-content: space-between;
   align-items: center;
 }
+
+.message {
+  display: flex;
+  flex-direction: column;
+
+  margin: 32px 0px;
+}

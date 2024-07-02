@@ -1,3 +1,18 @@
+const messages = [
+  "Vous n’avez aucune chance d’emporter le second tour, désistez-vous maintenant !",
+  "Ça sera de votre faute si le RN passe, désistez-vous !",
+  "Gardez votre honneur et désistez-vous !",
+  "Vous ne gagnerez pas cette élection, conservez votre honneur et désistez-vous !",
+  "Désistez-vous pour faire barrage au RN !",
+];
+
+const message = messages[Math.floor(Math.random() * messages.length)];
+document.querySelector("#message").textContent = message;
+document.querySelector("#message-container").onclick = () => {
+  navigator.clipboard.writeText(message);
+  document.querySelector("#copy-btn").textContent = "Copié !";
+};
+
 fetch("https://legislatives.fly.dev/")
   .then((response) => response.json())
   .then((data) => {
