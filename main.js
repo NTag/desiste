@@ -1,11 +1,11 @@
 import { data } from "./data.js";
 
 const messages = [
-  "Vous n’avez aucune chance d’emporter le second tour, désistez-vous maintenant ! desiste.fr",
-  "Ça sera de votre faute si le RN passe, désistez-vous ! desiste.fr",
-  "Gardez votre honneur et désistez-vous ! desiste.fr",
-  "Vous ne gagnerez pas cette élection, conservez votre honneur et désistez-vous ! desiste.fr",
-  "Désistez-vous pour faire barrage au RN ! desiste.fr Il faut faire un front républicain.",
+  "C’est le dernier moment ! Vous n’avez aucune chance d’emporter le second tour, désistez-vous maintenant ! desiste.fr",
+  "C’est le dernier moment ! Ça sera de votre faute si le RN passe, désistez-vous ! desiste.fr",
+  "C’est le dernier moment ! Gardez votre honneur et désistez-vous ! desiste.fr",
+  "C’est le dernier moment ! Vous ne gagnerez pas cette élection, conservez votre honneur et désistez-vous ! desiste.fr",
+  "C’est le dernier moment ! Désistez-vous pour faire barrage au RN ! desiste.fr Il faut faire un front républicain.",
 ];
 
 document.querySelector(
