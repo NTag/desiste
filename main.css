@@ -9,6 +9,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  margin-bottom: 32px;
+}
+
 *,
 *:before,
 *:after {
@@ -18,6 +22,7 @@
 .main {
   margin: 32px auto;
   max-width: 640px;
+  padding: 0px 8px;
 }
 
 h1,
@@ -32,7 +37,7 @@ h2 {
 
 .name {
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 .candidate {
@@ -65,5 +70,5 @@ h2 {
 }
 
 #copy-btn {
-  padding: 16px;
+  height: 32px;
 }
