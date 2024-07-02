@@ -104,3 +104,17 @@ a:hover {
   opacity: 0.5;
   text-decoration: line-through;
 }
+
+.share-container {
+  text-align: center;
+}
+
+#share {
+  margin: 32px auto;
+  display: block;
+  padding: 24px 32px;
+  text-align: center;
+  border: 2px solid gray;
+  border-radius: 8px;
+  font-weight: bold;
+}

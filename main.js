@@ -44,6 +44,12 @@ const messages = [
   "Désistez-vous pour faire barrage au RN ! desiste.fr",
 ];
 
+document.querySelector(
+  "#share"
+).href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+  "C’est le dernier moment : demandez aux candidats des triangulaires de se désister avant 18h 👉 desiste.fr #legislatives2024"
+)}`;
+
 const getTwitterURL = (handle) => {
   const message = messages[Math.floor(Math.random() * messages.length)];
   const text = `@${handle} ${message} #legislatives2024`;
