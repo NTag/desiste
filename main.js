@@ -1,9 +1,9 @@
 fetch("https://legislatives.fly.dev/")
   .then((response) => response.json())
   .then((data) => {
-    console.log(data);
     const candidates = data.candidatsNonDesistes;
     const count = candidates.length;
+    console.log(candidates);
 
     // all elements with class "number" will be updated with the count
     document.querySelectorAll(".number").forEach((el) => {
@@ -23,8 +23,14 @@ fetch("https://legislatives.fly.dev/")
         <div class="name">${candidate.nom}</div>
         <div class="socials">
           ${
-            candidate.insta &&
-            `<a href="https://instagram.com/${candidate.insta}" target="_blank"><img src="/instagram-logo.svg" /></a>`
+            candidate.insta
+              ? `<a href="https://instagram.com/${candidate.insta.handle}" target="_blank"><img src="/instagram-logo.svg" /></a>`
+              : ""
+          }
+          ${
+            candidate.x
+              ? `<a href="https://twitter.com/${candidate.x.handle}" target="_blank"><img src="/x-logo.svg" /></a>`
+              : ""
           }
         </div>
       `;
