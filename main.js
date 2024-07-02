@@ -43,12 +43,12 @@ fetch("https://legislatives.fly.dev/")
         </div>
         <div class="socials">
           ${
-            candidate.insta
+            candidate.insta?.handle
               ? `<a href="https://instagram.com/${candidate.insta.handle}" target="_blank"><img src="/instagram-logo.svg" /></a>`
               : ""
           }
           ${
-            candidate.x
+            candidate.x?.handle
               ? `<a href="https://twitter.com/${candidate.x.handle}" target="_blank"><img src="/x-logo.svg" /></a>`
               : ""
           }
