@@ -5,7 +5,7 @@ const messages = [
   "Ça sera de votre faute si le RN passe, désistez-vous ! desiste.fr",
   "Gardez votre honneur et désistez-vous ! desiste.fr",
   "Vous ne gagnerez pas cette élection, conservez votre honneur et désistez-vous ! desiste.fr",
-  "Désistez-vous pour faire barrage au RN ! desiste.fr",
+  "Désistez-vous pour faire barrage au RN ! desiste.fr Il faut faire un front républicain.",
 ];
 
 document.querySelector(
