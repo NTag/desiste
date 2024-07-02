@@ -16,7 +16,7 @@ document.querySelector("#message-container").onclick = () => {
 fetch("https://legislatives.fly.dev/")
   .then((response) => response.json())
   .then((data) => {
-    const candidates = data.candidatsNonDesistes;
+    const candidates = data.candidatsNonDesistes.filter((c) => !c.desiste);
     const count = candidates.length;
     console.log(candidates);
 
