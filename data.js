@@ -279,7 +279,7 @@ export const data = {
       ],
     },
     {
-      desiste: false,
+      desiste: true,
       circonscription: "ESSONNE 2e CIRCO.",
       parti: "HOR.-ENSEMBLE",
       nom: "Naima Sifer",
