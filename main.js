@@ -37,11 +37,11 @@ function copyTextToClipboard(text) {
 }
 
 const messages = [
-  "Vous n’avez aucune chance d’emporter le second tour, désistez-vous maintenant !",
-  "Ça sera de votre faute si le RN passe, désistez-vous !",
-  "Gardez votre honneur et désistez-vous !",
-  "Vous ne gagnerez pas cette élection, conservez votre honneur et désistez-vous !",
-  "Désistez-vous pour faire barrage au RN !",
+  "Vous n’avez aucune chance d’emporter le second tour, désistez-vous maintenant ! desiste.fr",
+  "Ça sera de votre faute si le RN passe, désistez-vous ! desiste.fr",
+  "Gardez votre honneur et désistez-vous ! desiste.fr",
+  "Vous ne gagnerez pas cette élection, conservez votre honneur et désistez-vous ! desiste.fr",
+  "Désistez-vous pour faire barrage au RN ! desiste.fr",
 ];
 
 const message = messages[Math.floor(Math.random() * messages.length)];
