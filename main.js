@@ -50,12 +50,24 @@ const getTwitterURL = (handle) => {
   return `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
 };
 
-const message = messages[Math.floor(Math.random() * messages.length)];
-document.querySelector("#message").textContent = message;
-document.querySelector("#message-container").onclick = () => {
-  copyTextToClipboard(message);
-  document.querySelector("#copy-btn").textContent = "Copié !";
-};
+// const message = messages[Math.floor(Math.random() * messages.length)];
+// document.querySelector("#message").textContent = message;
+// document.querySelector("#message-container").onclick = () => {
+//   copyTextToClipboard(message);
+//   document.querySelector("#copy-btn").textContent = "Copié !";
+// };
+
+function getBadgeColor(parti) {
+  const colors = {
+    LR: "#0890C5",
+    "HOR.-ENSEMBLE": "#FF9F0E",
+    "DIV. DR.": "#6387A8",
+    "REN.-ENSEMBLE": "#FF9F0E",
+    "MODEM-ENSEMBLE": "#FF9F0E",
+  };
+
+  return colors[parti] || "black";
+}
 
 fetch("https://legislatives.fly.dev/")
   .then((response) => response.json())
@@ -76,28 +88,25 @@ fetch("https://legislatives.fly.dev/")
         const hr = document.createElement("hr");
         liste.appendChild(hr);
       }
-      const div = document.createElement("div");
+      const div = document.createElement("a");
+      const scoreRN = candidate.scoresMeilleurs.find(
+        (s) => s.parti === "LR-RN" || s.parti === "RN"
+      ).score;
+      console.log(scoreRN);
       div.classList.add("candidate");
+      div.href = getTwitterURL(candidate.x?.handle);
       div.innerHTML = `
         <div class="left">
-          <b class="name">${candidate.nom}</b>
-          <span>${candidate.parti} • ${candidate.circonscription} • ${
+          <div class="name"><b>${
+            candidate.nom
+          }</b> <div class="badge" style="background-color: ${getBadgeColor(
+        candidate.parti
+      )}">${candidate.parti}</div></div>
+          <span>${candidate.circonscription} • ${
         candidate.score
-      }%</span>
+      }% (vs RN à ${scoreRN}%)</span>
         </div>
-        <div class="socials">
-          ${
-            candidate.insta?.handle
-              ? `<a href="https://instagram.com/${candidate.insta.handle}" target="_blank"><img src="/instagram-logo.svg" /></a>`
-              : ""
-          }
-          ${
-            candidate.x?.handle
-              ? `<a href="${getTwitterURL(
-                  candidate.x?.handle
-                )}" target="_blank"><img src="/x-logo.svg" /></a>`
-              : ""
-          }
+        <div class="right">
         </div>
       `;
       liste.appendChild(div);
